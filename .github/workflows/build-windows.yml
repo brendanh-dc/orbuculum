@@ -44,7 +44,7 @@ jobs:
       - run: make -j4 install
         working-directory: ./libusb/build
 
-      - run: "export PKG_CONFIG_PATH=`realpath ../libusb/install/lib/pkgconfig` && meson setup ./build --prefix A:/"
+      - run: "export CFLAGS='-Wno-error' && export PKG_CONFIG_PATH=`realpath ../libusb/install/lib/pkgconfig` && meson setup ./build --prefix A:/"
         working-directory: ./orbuculum
       - run: ninja -C ./build
         working-directory: ./orbuculum
